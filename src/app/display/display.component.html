@@ -1,0 +1,14 @@
+
+
+<div *ngIf="ds.a.length > 0">
+    <div *ngFor="let obj of ds.a; let i = index;">
+        <a>{{obj.email}}</a>
+    
+        <button mat-button color="primary" (click)="deleteA(i)">delete</button>
+        <button mat-button color="primary" (click)="update(i)">update</button>
+    </div>
+</div>
+<p></p>
+<div *ngIf="ds.a.length > 1">
+    <button mat-button color="primary" (click)="deleteAll()">Delete all</button>
+</div>

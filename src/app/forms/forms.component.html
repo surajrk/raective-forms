@@ -1,0 +1,49 @@
+<!-- <div *ngIf="!name; else forminfo">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+        <div class="example-container">
+            <mat-form-field>
+                <input matInput placeholder="NAME" formControlName="name">
+                <mat-error *ngIf="rForm.controls.name.hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="rForm.controls.name.hasError('email')">
+                    Email is <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="example-button-row">
+            <button mat-button color="primary" type="submit">SUBMIT</button>
+        </div>
+
+
+    </form>
+</div>
+
+<ng-template #forminfo>
+    <div class="form-container">
+        <div class="row columns">
+            <h1>{{ name }}</h1>
+
+            <p>{{ description }}</p>
+        </div>
+    </div>
+</ng-template> -->
+
+<form (ngSubmit)="OnSubmit()" [formGroup]="loginForm" >
+    <label>Email</label>
+    <input matInput type="text" formControlName="email">
+    <div *ngIf="fc.email.errors && fc.email.touched">
+        <div *ngIf="fc.email.errors.required">It is required</div>
+        <div *ngIf="fc.email.errors.email">Invalid email</div>
+    </div>
+    <label>Password</label>
+    <input type="password" formControlName="password">
+
+    <button mat-button color="primary" type="submit" [disabled]="loginForm.invalid">SUBMIT</button>
+</form>
+
+{{ loginForm.status }} {{loginForm.valid}} 
